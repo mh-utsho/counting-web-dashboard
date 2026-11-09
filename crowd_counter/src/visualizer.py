@@ -37,11 +37,11 @@ def draw_frame(frame, dets, roi, state, count, unique_total, threshold, fps, anc
             _text(frame, f"ID {d.track_id}", (d.x1, max(d.y1 - 6, 14)), 0.5, color, 1)
 
     # HUD panel
-    cv2.rectangle(frame, (8, 8), (310, 138), (0, 0, 0), -1)
-    _text(frame, f"In ROI    : {count}", (18, 34), 0.7, WHITE, 2)
-    _text(frame, f"Threshold : {threshold}", (18, 60), 0.6)
-    _text(frame, f"Unique IDs: {unique_total}", (18, 84), 0.6)
-    _text(frame, f"FPS       : {fps:.1f}", (18, 108), 0.6)
+    # cv2.rectangle(frame, (8, 8), (310, 138), (0, 0, 0), -1)
+    # _text(frame, f"In ROI    : {count}", (18, 34), 0.7, WHITE, 2)
+    # _text(frame, f"Threshold : {threshold}", (18, 60), 0.6)
+    # _text(frame, f"Unique IDs: {unique_total}", (18, 84), 0.6)
+    # _text(frame, f"FPS       : {fps:.1f}", (18, 108), 0.6)
     status, scol = ("ALERT", RED) if state.active else (("WARNING", ORANGE) if state.pending else ("NORMAL", GREEN))
     _text(frame, f"Status    : {status}", (18, 130), 0.6, scol, 2)
 

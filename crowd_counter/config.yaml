@@ -9,9 +9,9 @@ frame_height: 720
 model: yolo11n.pt         # downloaded automatically on first run
 device: cpu              # auto | cpu | 0 (first GPU)
 #imgsz: 640                # smaller (480/416) is faster on CPU
-imgsz: 480
-frame_width: 640
-frame_height: 480
+imgsz: 800
+frame_width: 540
+frame_height: 440
 conf: 0.35                # detection confidence (lower = more detections, more false positives)
 iou: 0.5
 
@@ -33,10 +33,10 @@ clear_delay: 0.5          # seconds to wait after the count drops before clearin
 roi_file: roi.json        # ROI drawn with 'r' is saved here
 # If roi_file does not exist, this default ROI is used (0.0-1.0 normalized, x y)
 default_roi:
-  - [0.10, 0.10]
-  - [0.90, 0.10]
-  - [0.90, 0.90]
-  - [0.10, 0.90]
+  - [0.03, 0.03]
+  - [0.97, 0.03]
+  - [0.97, 0.97]
+  - [0.03, 0.97]
 
 # --- Display ---
 window_name: "Crowd Counter"
