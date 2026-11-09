@@ -1,0 +1,44 @@
+# ===================== Crowd Counter Configuration =====================
+
+# --- Video source ---
+source: 0                 # 0 = laptop webcam, or a video file path (e.g. "test.mp4")
+frame_width: 1280         # webcam resolution (ignored for video files)
+frame_height: 720
+
+# --- Detection (YOLO11n) ---
+model: yolo11n.pt         # downloaded automatically on first run
+device: cpu              # auto | cpu | 0 (first GPU)
+#imgsz: 640                # smaller (480/416) is faster on CPU
+imgsz: 480
+frame_width: 640
+frame_height: 480
+conf: 0.35                # detection confidence (lower = more detections, more false positives)
+iou: 0.5
+
+# --- Tracking (ByteTrack) ---
+tracker: trackers/bytetrack.yaml
+
+# --- Counting ---
+# Which point of a person's bounding box must be inside the ROI to be counted:
+#   center : middle of the bounding box   (good for webcam / desk tests)
+#   bottom : bottom-center = near the feet (good for CCTV / elevated cameras)
+anchor: center
+
+# --- Crowd alert ---
+threshold: 3              # crowd = more than this many people in the ROI (count > threshold)
+alert_duration: 2.0       # seconds the count must stay above threshold before ALERT
+clear_delay: 0.5          # seconds to wait after the count drops before clearing the alert (prevents flicker)
+
+# --- ROI ---
+roi_file: roi.json        # ROI drawn with 'r' is saved here
+# If roi_file does not exist, this default ROI is used (0.0-1.0 normalized, x y)
+default_roi:
+  - [0.10, 0.10]
+  - [0.90, 0.10]
+  - [0.90, 0.90]
+  - [0.10, 0.90]
+
+# --- Display ---
+window_name: "Crowd Counter"
+show_ids: true
+output_dir: output        # screenshots are saved here
