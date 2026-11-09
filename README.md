@@ -46,6 +46,10 @@ source .venv/bin/activate
 pip install --upgrade pip
 python -m pip install fastapi "uvicorn[standard]" ultralytics opencv-python
 python -m pip install "fastapi[standard]"
+
+python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+python -m pip install ultralytics lapx matplotlib pillow
+
 --->backend/app python -m pip install opencv-python
 
 
