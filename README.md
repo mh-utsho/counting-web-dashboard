@@ -50,19 +50,6 @@ python -m pip install "fastapi[standard]"
 python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 python -m pip install ultralytics lapx matplotlib pillow
 
---->backend/app python -m pip install opencv-python
-
-
-if needed
-{
-cd backend
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-}
-
-
 ```
 
 Frontend in another terminal:
@@ -75,11 +62,12 @@ npm install
 
 Backend:
 ```bash
-cd backend/app
+cd backend
 source .venv/bin/activate
+cd backend/apps
 fastapi dev main.py
 
-{
+{ if using uvicorn
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 }
 
