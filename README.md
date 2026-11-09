@@ -44,7 +44,21 @@ cd backend
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
+python -m pip install fastapi "uvicorn[standard]" ultralytics opencv-python
+python -m pip install "fastapi[standard]"
+--->backend/app python -m pip install opencv-python
+
+
+if needed
+{
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
+}
+
+
 ```
 
 Frontend in another terminal:
@@ -57,9 +71,14 @@ npm install
 
 Backend:
 ```bash
-cd backend
+cd backend/app
 source .venv/bin/activate
+fastapi dev main.py
+
+{
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+}
+
 ```
 
 Frontend:
