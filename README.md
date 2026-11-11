@@ -78,7 +78,33 @@ Frontend:
 cd frontend
 npm run dev
 ```
+## Windows
+Backend:
+```bash
+cd backend
 
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+venv\Scripts\Activate.ps1
+
+# Upgrade pip
+python -m pip install --upgrade pip
+
+# Install FastAPI and dependencies
+python -m pip install fastapi "uvicorn[standard]" ultralytics opencv-python
+
+# Install FastAPI standard dependencies
+python -m pip install "fastapi[standard]"
+
+# Install CPU version of PyTorch
+python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
+# Install additional dependencies
+python -m pip install ultralytics lapx matplotlib pillow
+
+```
 Open `http://localhost:5173`. Overview is `/`; the standalone Alert Center is `/alerts`; API documentation is `http://localhost:8000/docs`.
 
 Click **Start** on the Overview page. Source `0` means the default webcam connected to the machine running FastAPI. A video file path must be accessible to that backend machine. On first run, Ultralytics may download the configured YOLO model if it is not already present.
