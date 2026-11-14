@@ -65,7 +65,7 @@ Backend:
 ```bash
 cd backend
 source venv/bin/activate
-cd backend/apps
+cd backend/app
 fastapi dev main.py
 
 { if using uvicorn
