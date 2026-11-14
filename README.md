@@ -41,8 +41,8 @@ crowd_counter/            Original YOLO/ByteTrack pipeline
 Backend:
 ```bash
 cd backend
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip install --upgrade pip
 python -m pip install fastapi "uvicorn[standard]" ultralytics opencv-python
 python -m pip install "fastapi[standard]"
@@ -63,7 +63,7 @@ npm install
 Backend:
 ```bash
 cd backend
-source .venv/bin/activate
+source venv/bin/activate
 cd backend/apps
 fastapi dev main.py
 
